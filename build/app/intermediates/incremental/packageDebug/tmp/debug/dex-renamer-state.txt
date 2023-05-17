@@ -1,0 +1,4 @@
+#Wed May 17 08:56:29 PET 2023
+base.0=/Users/kat/Documents/maquetacionFlutter/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
