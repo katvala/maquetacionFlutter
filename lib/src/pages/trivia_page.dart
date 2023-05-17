@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../theme.dart';
-import '../widgets/card_var.dart';
+import '../widgets/card_trivia.dart';
 import '../widgets/congrats_page.dart';
 import '../widgets/try_page.dart';
 
@@ -55,7 +55,7 @@ class TriviaHomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 51),
-            child: CardVar(
+            child: CardTrivia(
               imagePath: 'assets/images/imgHelixultra.png',
               question: '¿Qué significa la "X" en ',
               questionSecondary: 'Shell Helix Ultra X',
