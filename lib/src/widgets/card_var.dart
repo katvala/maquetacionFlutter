@@ -1,12 +1,21 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:vistas/src/widgets/try_page.dart';
 
 import '../../theme.dart';
-import 'congrats_page.dart';
 
-class CardTrivia extends StatelessWidget {
-  const CardTrivia({super.key});
+class CardVar extends StatelessWidget {
+  final String imagePath;
+  final String question;
+  final String questionSecondary;
+  final List<Widget> buttons;
+
+  const CardVar({
+    Key? key,
+    required this.imagePath,
+    required this.question,
+    required this.questionSecondary,
+    required this.buttons,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -79,27 +88,27 @@ class CardTrivia extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Image.asset('assets/images/imgHelixultra.png'),
+                      Image.asset(imagePath),
                       Padding(
                         padding: const EdgeInsets.only(
                             top: 16.0, left: 20.0, right: 20),
                         child: RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
-                            text: '¿Qué significa la "X" en',
+                            text: question,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge!
                                 .copyWith(),
-                            children: const [
+                            children: [
                               TextSpan(
-                                text: ' Shell Helix Ultra X',
-                                style: TextStyle(
+                                text: questionSecondary,
+                                style: const TextStyle(
                                   color: kSecondary,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              TextSpan(
+                              const TextSpan(
                                 text: '?',
                               ),
                             ],
@@ -112,51 +121,7 @@ class CardTrivia extends StatelessWidget {
                           alignment: WrapAlignment.center,
                           spacing: 8,
                           runSpacing: 1,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const CongratsPage()),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: kPrimary,
-                              ),
-                              child: const Text(
-                                'EXcelente eficiencia',
-                                style: TextStyle(color: kTextColor),
-                              ),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const TryPage()),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: kPrimary,
-                              ),
-                              child: const Text(
-                                'EXtra protección',
-                                style: TextStyle(color: kTextColor),
-                              ),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: kPrimary,
-                              ),
-                              child: const Text(
-                                'Rendimiento eXtremo',
-                                style: TextStyle(color: kTextColor),
-                              ),
-                            ),
-                          ],
+                          children: buttons,
                         ),
                       ),
                     ],

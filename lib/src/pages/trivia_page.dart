@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../theme.dart';
-import '../widgets/card_trivia.dart';
+import '../widgets/card_var.dart';
+import '../widgets/congrats_page.dart';
+import '../widgets/try_page.dart';
 
 class TriviaHomePage extends StatelessWidget {
   const TriviaHomePage({super.key});
+
+  final pathBanner = 'assets/images/imgTriviaPromo.png';
+  final pathImg = 'assets/images/imgTriviaPromo.png';
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +33,7 @@ class TriviaHomePage extends StatelessWidget {
         children: [
           Center(
             child: Image.asset(
-              'assets/images/imgTriviaPromo.png',
+              pathBanner,
               width: 331,
               height: 106,
             ),
@@ -48,9 +53,61 @@ class TriviaHomePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(top: 51),
-            child: CardTrivia(),
+          Padding(
+            padding: const EdgeInsets.only(top: 51),
+            child: CardVar(
+              imagePath: 'assets/images/imgHelixultra.png',
+              question: '¿Qué significa la "X" en ',
+              questionSecondary: 'Shell Helix Ultra X',
+              buttons: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CongratsPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: kPrimary,
+                  ),
+                  child: const Text(
+                    'EXcelente eficiencia',
+                    style: TextStyle(color: kTextColor),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TryPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: kPrimary,
+                  ),
+                  child: const Text(
+                    'EXtra protección',
+                    style: TextStyle(color: kTextColor),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TryPage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: kPrimary,
+                  ),
+                  child: const Text(
+                    'Rendimiento EXtremo',
+                    style: TextStyle(color: kTextColor),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
