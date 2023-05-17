@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../theme.dart';
 
-class CardVar extends StatelessWidget {
+class CardTrivia extends StatelessWidget {
   final String imagePath;
   final String question;
   final String questionSecondary;
   final List<Widget> buttons;
 
-  const CardVar({
+  const CardTrivia({
     Key? key,
     required this.imagePath,
     required this.question,
